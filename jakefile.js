@@ -2,16 +2,17 @@
     'use strict';
 
     var semver = require('semver');
+    var jshint = require('simplebuild-jshint');
     
 
-    desc('Default build');
+    desc('Default build')
     task('default', ['version', 'lint'], function(){
         console.log('\n\nBuild OK');
     });
 
     desc('Check NodeJS version');
     task('version', function(){
-        console.log('Checking NodeJS version: .');
+        process.stdout.write('Checking NodeJS version: ');
        
         var packageJson = require('./package.json');
         var expectedVersion = 'v' + packageJson.engines.node;
@@ -24,10 +25,12 @@
 
     desc('Lint the code');
     task('lint', function(){
-        console.log('Linting JavaScript: .');
-
-        jake.exec('node node_modules/jshint/bin/jshint jakefile.js', {interactive: true}, complete);
-
+        process.stdout.write('Linting JavaScript: ');
+        jshint.checkFiles({
+            files: 'jakefile.js',
+            options: {},
+            globals: {}
+        }, complete, fail);
     }, {async: true});
 
 })();
