@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "jakefile.js",
+  "engines": {
+    "node": "4.2.6"
+  },
   "dependencies": {},
   "devDependencies": {
     "jake": "latest"
