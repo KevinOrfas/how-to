@@ -5,7 +5,7 @@
     var jshint = require('simplebuild-jshint');
     
 
-    desc('Default build')
+    desc('Default build');
     task('default', ['version', 'lint'], function(){
         console.log('\n\nBuild OK');
     });
@@ -23,9 +23,10 @@
         console.log(process.version);
     });
 
-    desc('Lint the code');
+    desc('Lint JavaScript code');
     task('lint', function(){
         process.stdout.write('Linting JavaScript: ');
+        
         jshint.checkFiles({
             files: 'jakefile.js',
             options: {},
