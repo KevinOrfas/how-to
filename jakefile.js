@@ -1,16 +1,23 @@
-/* globals desc: false, task: false, complete: false, fail: false */
+/* globals jake:false, desc:false, task:false, complete:false, fail:false */
 (function(){
     'use strict';
 
     var semver = require('semver');
     var jshint = require('simplebuild-jshint');
     
-
+    //**** Gebral purpose tasks 
     desc('Default build');
     task('default', ['version', 'lint'], function(){
         console.log('\n\nBuild OK');
     });
 
+    desc('Run localhost server');
+    task('run', function(){
+        jake.exec('node node_modules/http-server/bin/http-server src', {interactive: true}, complete);
+        console.log('Run http server');
+    });
+
+    //***** Supporting task 
     desc('Check NodeJS version');
     task('version', function(){
         process.stdout.write('Checking NodeJS version: ');
