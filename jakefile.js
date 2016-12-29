@@ -59,7 +59,8 @@
         console.log('Testing JavaScript:');
         karma.run({
             configFile: KARMA_CONFIG,
-            exprectedBrowsers: ['Opera 42.0.2393 (Mac OS X 10.11.5)', 'Chrome 55.0.2883 (Mac OS X 10.11.5)']
+            exprectedBrowsers: ['Opera 42.0.2393 (Mac OS X 10.11.5)', 'Chrome 55.0.2883 (Mac OS X 10.11.5)'],
+            strict: !process.env.loose
         }, complete, fail);
     }, { async : true });
 
