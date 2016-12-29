@@ -1,3 +1,4 @@
+/* globals desc: false, task: false, complete: false, fail: false */
 (function(){
     'use strict';
 
@@ -29,7 +30,23 @@
         
         jshint.checkFiles({
             files: 'jakefile.js',
-            options: {},
+            options: {
+                bitwise: true,
+                eqeqeq: true,
+                forin: true,
+                freeze: true,
+                futurehostile: true,
+                latedef: true,
+                noarg: true,
+                nocomma: true,
+                nonbsp: true,
+                nonew: true,
+                strict: true,
+                undef: true,
+                unused: true,
+                node: true,
+                browser: true,
+            },
             globals: {}
         }, complete, fail);
     }, {async: true});
