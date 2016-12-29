@@ -50,7 +50,6 @@
                 nonew: true,
                 strict: true,
                 undef: true,
-                unused: true,
                 node: true,
                 browser: true,
             },
