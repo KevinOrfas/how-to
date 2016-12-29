@@ -5,7 +5,14 @@
     var semver = require('semver');
     var jshint = require('simplebuild-jshint');
     
-    //**** Gebral purpose tasks 
+    //**** General-purpose tasks 
+
+    desc('Start the Karma server (run this first)');
+
+    task('karma', function(){
+        console.log('Starting the Karma server');
+    });
+
     desc('Default build');
     task('default', ['version', 'lint'], function(){
         console.log('\n\nBuild OK');
