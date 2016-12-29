@@ -6,23 +6,11 @@
         return a + b;
     }
 
-    var actual = add(3,4);
-    var expected = 7;
+    //basic addition
+    assert.equal(add(3,4), 7);
 
-    function assertEqual(actual, expected) {
-        if(actual !== expected) throw new Error('Expected ' + expected + ' but got ' + actual );   
-        // try {
-        //  if(actual !== expected) throw new Error('Expected ' + expected + ' but got ' + actual );
-        // } catch (error) {
-        //     console.log('Caught exception ' + error);
-        // }
-    }
-
-    // assertEqual(actual, expected);
-
-    assert.equal(actual, expected);
-    // expect(actual).to.equal(7);
-    // add(3,4).should.equal(7);
+    //IEEE 754 floating point
+    assert.equal(add(0.1,0.2), 0.30000000000000004);
 
     
 })();
