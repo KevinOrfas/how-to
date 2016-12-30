@@ -13,21 +13,28 @@
             tabs.initialize(element);
 
             //assert element is not vivisble
-            var styles =  getComputedStyle(element);
-            var display = styles.getPropertyValue('display');
-           
-            assert.equal(display, 'none');
+            assert.equal(getDisplayProperty(element), 'none');
 
             // reset
+            removeElement(element);
             //remove test element
         });
         
     });
 
+    function getDisplayProperty(element) {
+        var styles =  getComputedStyle(element);
+        return styles.getPropertyValue('display');
+    }
+
     function addElement(tagName){
         var element = document.createElement(tagName);
         document.body.appendChild(element);
         return element;
+    }
+
+    function removeElement(element) {
+        element.parentNode.removeChild(element);
     }
 
 
