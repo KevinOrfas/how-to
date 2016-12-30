@@ -5,9 +5,9 @@
     var tabs = require('./tabs.js');
 
     describe('Tabs', function() {
-        it('has an API', function() {
+        it('hiddes an elament', function() {
 
-            tabs.initialize();
+            tabs.initialize(element);
 
         });
         
