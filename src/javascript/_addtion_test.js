@@ -1,7 +1,8 @@
 (function(){
     'use strict';
-    var assert = require('../vendor/chai-4.0.0.js').assert;
+    
     var addition = require('./addition.js');
+    var addition = require('./assert.js');
 
     describe('Addition', function(){
         it('adds positive numbers', function(){
