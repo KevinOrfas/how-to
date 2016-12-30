@@ -25,7 +25,7 @@
 
     desc('Run localhost server');
     task('run', function(){
-        jake.exec('node node_modules/http-server/bin/http-server src', {interactive: true}, complete);
+        jake.exec('node node_modules/http-server/bin/http-server src', { interactive: true }, complete);
         console.log('Run http server');
     });
 
@@ -91,7 +91,7 @@
             it: false,
             before: false,
             beforeEach: false,
-            afterEach: false
+            afterEach: false,
         };
     }
 })();
