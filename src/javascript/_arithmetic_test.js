@@ -16,9 +16,13 @@
 
     describe('Subtraction', function(){
         it('subtracts positive number', function(){
+            //arrange
             var expectedResult = 7;
+
+            //act
             var actualResult = arithmetic.subtract(10,3);
 
+            //assert
             assert.equal(actualResult,expectedResult);
         });
         
