@@ -2,7 +2,7 @@
     'use strict';
     
     var addition = require('./addition.js');
-    var addition = require('./assert.js');
+    var assert = require('./assert.js');
 
     describe('Addition', function(){
         it('adds positive numbers', function(){
@@ -12,5 +12,15 @@
             assert.equal(addition.add(0.1,0.2), 0.30000000000000004);
         });
     });
+
+
+    describe('Subtraction', function(){
+        it('exists', function(){
+            addition.subtract();
+        });
+        
+    });
+
+
     
 })();
