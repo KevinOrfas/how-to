@@ -4,6 +4,6 @@
     var addition = require('./addition.js');
     
     console.log('Hello');
-    console.log('1 + 1 = ' + addition.ad(1,1));
+    console.log('1 + 1 = ' + addition.add(1,1));
 
 })();
