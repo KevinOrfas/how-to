@@ -27,9 +27,9 @@
 
     desc('Run localhost server');
     task('run', ['build'], function(){
+        console.log('Running http server');
         jake.exec('node node_modules/http-server/bin/http-server ' + DIST_DIR, { interactive: true }, complete);
-        console.log('Run http server');
-    });
+    }, { async : true});
 
     desc('Erase all gnerated files');
     task('clean', function(){
@@ -82,7 +82,7 @@
             { interactive: true }, 
             complete
         );
-    });
+    }, { async : true});
 
     directory(DIST_DIR);
 
