@@ -16,8 +16,8 @@
             assert.equal(getDisplayProperty(element), 'none');
 
             // reset
-            removeElement(element);
             //remove test element
+            removeElement(element);
         });
         
     });
