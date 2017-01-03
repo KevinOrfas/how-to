@@ -21,15 +21,15 @@
         showTab(defaultTab, tabs, content, activeTabClass, hiddenContentClass);
     };
 
-    function showTab(defaultTab, tabs, content, activeTabClass, hiddenContentClass) {
-        var activeIndex = findIndexOfDefaultElement(tabs, defaultTab);
+    function showTab(tabToShow, tabs, content, activeTabClass, hiddenContentClass) {
+        var activeIndex = findIndexOfDefaultElement(tabs, tabToShow);
         var defaultContent = content[activeIndex];
 
         content.forEach(function(element){
             element.classList.add(hiddenContentClass);
         });
         defaultContent.classList.remove(hiddenContentClass);
-        defaultTab.classList.add(activeTabClass);
+        tabToShow.classList.add(activeTabClass);
     }
 
     function findIndexOfDefaultElement(contentTabs, defaultContentTab) {
