@@ -18,6 +18,10 @@
         checkOption(activeTabClass, 'options.activeTabClass');
         checkOption(hiddenContentClass, 'options.hiddenContentClass');
 
+        showTab(defaultTab, tabs, content, activeTabClass, hiddenContentClass);
+    };
+
+    function showTab(defaultTab, tabs, content, activeTabClass, hiddenContentClass) {
         var activeIndex = findIndexOfDefaultElement(tabs, defaultTab);
         var defaultContent = content[activeIndex];
 
@@ -26,7 +30,7 @@
         });
         defaultContent.classList.remove(hiddenContentClass);
         defaultTab.classList.add(activeTabClass);
-    };
+    }
 
     function findIndexOfDefaultElement(contentTabs, defaultContentTab) {
         for (var i = 0; i < contentTabs.length; i++) {
