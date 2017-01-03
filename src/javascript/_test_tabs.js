@@ -18,13 +18,13 @@
         });
 
         it('hides all content elements except the default upon initialization', function() {
-            var tab1 = addElement('div');
-            var defaultTab = addElement('div');
-            var tab3 = addElement('div');
+            var tab1 = createTab();
+            var defaultTab = createTab();
+            var tab3 = createTab();
 
-            var element1 = addElement('div');
-            var defaultElement = addElement('div');
-            var element3 = addElement('div');
+            var element1 = createTabContent();
+            var defaultElement = createTabContent();
+            var element3 = createTabContent();
 
             tabs.initialize({
                 tabs: [tab1, defaultTab, tab3],
@@ -41,11 +41,11 @@
         });
 
 		it('preserves existing classes when hiding a content element', function() {
-            var defaultTab = addElement('div');
-            var hiddenTab = addElement('div');
+            var defaultTab = createTab();
+            var hiddenTab = createTab();
 
-			var defaultElement = addElement('div');
-            var hiddenElement = addElement('div');
+			var defaultElement = createTabContent();
+            var hiddenElement = createTabContent();
 			hiddenElement.setAttribute('class', 'existingClass');
 
              tabs.initialize({
@@ -61,8 +61,8 @@
 		});
 
         it('styles the default tab  with a class', function(){
-            var defaultTab = addElement('div');
-            var defaultElement = addElement('div');
+            var defaultTab = createTab();
+            var defaultElement = createTab();
 
             tabs.initialize({
                 tabs: [ defaultTab ],
@@ -85,6 +85,18 @@
 		function getClasses(element) {
 			return element.getAttribute('class');
 		}
+
+        function createTab() {
+            var tab = addElement('div');
+            tab.innerHTML = 'tab';
+            return tab;
+        }
+
+        function createTabContent() {
+            var content = addElement('div');
+            content.innerHTML = 'content';
+            return content;
+        }
 
 		function addElement(tagName) {
 			var element = document.createElement(tagName);
