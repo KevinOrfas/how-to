@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 (function(){
     'use strict';
    
@@ -6,6 +7,7 @@
 
     describe('Tabs', function() {
 
+        const IRRELEVANT = 'irrelevant';
         var container;
 
         beforeEach(function(){
@@ -18,19 +20,15 @@
         });
 
         it('hides all content elements except the default upon initialization', function() {
-            var tab1 = createTab();
-            var defaultTab = createTab();
-            var tab3 = createTab();
-
             var content1 = createTabContent();
             var defaultContent = createTabContent();
             var content3 = createTabContent();
 
             tabs.initialize({
-                tabs: [tab1, defaultTab, tab3],
+                tabs: [createTab(), createTab(), createTab()],
                 content: [content1, defaultContent, content3],
                 default: defaultContent,
-                activeTabClass: 'activeTab',
+                activeTabClass: IRRELEVANT,
                 contentHideClass: 'hideClass'
             });
             
@@ -41,15 +39,12 @@
         });
 
 		it('preserves existing classes when hiding a content element', function() {
-            var defaultTab = createTab();
-            var hiddenTab = createTab();
-
-			var defaultContent = createTabContent();
+            var defaultContent = createTabContent();
             var hiddenContent = createTabContent();
 			hiddenContent.setAttribute('class', 'existingClass');
 
              tabs.initialize({
-                tabs: [defaultTab, hiddenTab],
+                tabs: [createTab(), createTab()],
                 content: [ defaultContent, hiddenContent ],
                 default: defaultContent,
                 activeTabClass: 'activeTab',
@@ -69,7 +64,7 @@
                 content: [ defaultContent ],
                 default: defaultContent,
                 activeTabClass: 'activeTab',
-                contentHideClass: 'ignored'
+                contentHideClass: IRRELEVANT
             });
 
             assert.equal(getClasses(defaultTab), 'activeTab');
