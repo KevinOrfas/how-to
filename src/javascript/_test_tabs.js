@@ -22,52 +22,52 @@
             var defaultTab = createTab();
             var tab3 = createTab();
 
-            var element1 = createTabContent();
-            var defaultElement = createTabContent();
-            var element3 = createTabContent();
+            var content1 = createTabContent();
+            var defaultContent = createTabContent();
+            var content3 = createTabContent();
 
             tabs.initialize({
                 tabs: [tab1, defaultTab, tab3],
-                content: [element1, defaultElement, element3],
-                default: defaultElement,
+                content: [content1, defaultContent, content3],
+                default: defaultContent,
                 activeTabClass: 'activeTab',
                 contentHideClass: 'hideClass'
             });
             
             // assert that elements are hidden
-            assert.equal(getClasses(element1), 'hideClass', 'element 1 should be hidden');
-            assert.equal(getClasses(defaultElement), '', 'default element should not be hidden');
-            assert.equal(getClasses(element3), 'hideClass', 'element 3 should be hidden');
+            assert.equal(getClasses(content1), 'hideClass', 'element 1 should be hidden');
+            assert.equal(getClasses(defaultContent), '', 'default element should not be hidden');
+            assert.equal(getClasses(content3), 'hideClass', 'element 3 should be hidden');
         });
 
 		it('preserves existing classes when hiding a content element', function() {
             var defaultTab = createTab();
             var hiddenTab = createTab();
 
-			var defaultElement = createTabContent();
-            var hiddenElement = createTabContent();
-			hiddenElement.setAttribute('class', 'existingClass');
+			var defaultContent = createTabContent();
+            var hiddenContent = createTabContent();
+			hiddenContent.setAttribute('class', 'existingClass');
 
              tabs.initialize({
                 tabs: [defaultTab, hiddenTab],
-                content: [ defaultElement, hiddenElement ],
-                default: defaultElement,
-                 activeTabClass: 'activeTab',
+                content: [ defaultContent, hiddenContent ],
+                default: defaultContent,
+                activeTabClass: 'activeTab',
                 contentHideClass: 'newClass'
             });
 
-			assert.equal(getClasses(hiddenElement), 'existingClass newClass');
+			assert.equal(getClasses(hiddenContent), 'existingClass newClass');
 
 		});
 
         it('styles the default tab  with a class', function(){
             var defaultTab = createTab();
-            var defaultElement = createTab();
+            var defaultContent = createTab();
 
             tabs.initialize({
                 tabs: [ defaultTab ],
-                content: [ defaultElement ],
-                default: defaultElement,
+                content: [ defaultContent ],
+                default: defaultContent,
                 activeTabClass: 'activeTab',
                 contentHideClass: 'ignored'
             });
