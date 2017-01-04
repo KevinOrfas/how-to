@@ -7,6 +7,7 @@
 
     describe('Tabs', function() {
 
+        const ACTIVE_TAB = 'activeClass';
         const HIDDEN_CONTENT = 'hideClass';
         const IRRELEVANT = 'irrelevant';
         var container;
@@ -61,16 +62,23 @@
                 tabs: [tab1, defaultTab, tab3],
                 content: [ createTabContent(), defaultContent, createTabContent() ],
                 defaultTab: defaultTab,
-                activeTabClass: 'activeTab',
+                activeTabClass: ACTIVE_TAB,
                 hiddenContentClass: IRRELEVANT
             });
 
-            assert.equal(getClasses(tab1), null, 'tab1 should not be styled');
-            assert.equal(getClasses(defaultTab), 'activeTab', 'defaultTab should be styled');
-            assert.equal(getClasses(tab3), null, 'tab3 should not be styled');
-            
-            assert.equal(getClasses(defaultTab), 'activeTab');
+            assertTabInactive(tab1, 'tab 1');
+            assertTabActive(defaultTab, 'defaultTab');
+            assertTabInactive(tab3, 'tab 3');
+            assert.equal(getClasses(defaultTab), ACTIVE_TAB);
         });
+
+        function assertTabActive(element, elementName) {
+            assert.equal(getClasses(element), ACTIVE_TAB, elementName + ' defaultTab should be active');
+        }
+
+        function assertTabInactive(element, elementName) {
+            assert.equal(getClasses(element), null,  elementName + ' should not be styled');
+        }
 
         it('switch content when tab is clicked ', function(){
             var tab1 = createTab();
@@ -85,7 +93,7 @@
                 tabs: [tab1, tab2, tab3],
                 content: [ content1, content2, content3 ],
                 defaultTab: tab1,
-                activeTabClass: 'activeTab',
+                activeTabClass:ACTIVE_TAB,
                 hiddenContentClass: HIDDEN_CONTENT
             });
 
