@@ -37,9 +37,9 @@
             });
             
           
-            assertContentHidden(content1, 'element1');
-            assertContentVisible(defaultContent, 'default element');
-            assertContentHidden(content3, 'element3');
+            assertContentHidden(content1, 'element 1 should be hidden');
+            assertContentVisible(defaultContent, 'default element should not be hidden');
+            assertContentHidden(content3, 'element 3 should be hidden');
            
         });
 
@@ -66,14 +66,14 @@
                 hiddenContentClass: IRRELEVANT
             });
 
-            assertTabInactive(tab1, 'tab 1');
-            assertTabActive(defaultTab, 'defaultTab');
-            assertTabInactive(tab3, 'tab 3');
+            assertTabInactive(tab1, 'tab 1 should be hidden');
+            assertTabActive(defaultTab, 'defaultTab should not be hidden');
+            assertTabInactive(tab3, 'tab 3 should be hidden');
             assert.equal(getClasses(defaultTab), ACTIVE_TAB);
         });
 
 
-        it('switch content when tab is clicked ', function(){
+        it('switches content when tab is clicked ', function(){
             var tab1 = createTab();
             var tab2 = createTab();
             var tab3 = createTab();
@@ -91,14 +91,14 @@
             });
 
             tab2.click();
-            assertContentVisible(content2, 'content 2');
-            assertContentHidden(content1, 'content 1');
-          
-            assertTabActive(tab2, 'tab2');
-            assertTabInactive(tab1, 'tab1');
+            assertContentVisible(content2, 'content 2 should be visible after click');
+            assertTabActive(tab2, 'tab2 should be visible after click');
+         
+            assertContentHidden(content1, 'content 1 should no longer be visible after click');
+            assertTabInactive(tab1, 'tab1 should no longer be visible after click');
 
             tab3.click();
-            assertContentVisible(content3, 'content 3');
+            assertContentVisible(content3, 'should be able to click multiple tabs');
 
         });
 
@@ -123,12 +123,12 @@
 		});
 
         
-        function assertTabActive(element, elementName) {
-            assert.equal(getClasses(element), ACTIVE_TAB, elementName + ' defaultTab should be active');
+        function assertTabActive(element, message) {
+            assert.equal(getClasses(element), ACTIVE_TAB, message);
         }
 
-        function assertTabInactive(element, elementName) {
-            assert.equal(getClasses(element), '',  elementName + ' should not be styled');
+        function assertTabInactive(element, message) {
+            assert.equal(getClasses(element), '',  message);
         }
       
 		function getClasses(element) {
