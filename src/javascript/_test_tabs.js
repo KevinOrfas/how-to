@@ -99,6 +99,8 @@
 
             tab2.click();
             assertContentVisible(content2, 'content 2');
+            assertContentHidden(content1, 'content 1');
+            // assertContentHidden(content3, 'content 3');
 
             tab3.click();
             assertContentVisible(content3, 'content 3');
