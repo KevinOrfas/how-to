@@ -13,6 +13,13 @@
         checkOption(options.hiddenContentClass, 'options.hiddenContentClass');
         
         showTab(options.defaultTab, options);
+
+        options.tabs.forEach(function(tabElement){
+            tabElement.addEventListener('click', function(event){
+             showTab(event.target, options);
+            });
+        });
+        
     };
 
     function showTab(tabToShow, options) {

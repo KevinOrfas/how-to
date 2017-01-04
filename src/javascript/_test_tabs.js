@@ -97,6 +97,11 @@
                 hiddenContentClass: HIDDEN_CONTENT
             });
 
+            tab2.click();
+            assertContentVisible(content2, 'content 2');
+
+            tab3.click();
+            assertContentVisible(content3, 'content 3');
 
         });
 
